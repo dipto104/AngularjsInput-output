@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html  ng-app="demo">
+<head >
+	<title>Angular Js Demo app</title>
+	<script src="Scripts/angular.min.js"> </script>
+	<script>
+		var app = angular.module("demo", []);
+		app.controller("testCtrl", function($scope) {
+		   $scope.temp = "";
+		   $scope.rows = []; // init empty array
+		   
+		   $scope.printStars = function() {
+			  var n = $scope.givenNumber;
+			  $scope.rows = [];
+			  
+			  for(var i = n; i>=1; i--){
+				var row = [];
+				for(j = 1; j<=i; j++){
+				  row.push(j);
+				}
+				$scope.rows.push(row);
+			  }
+			  for(var i = 1; i<=n; i++){
+				var row = [];
+				for(j = 1; j<=i; j++){
+				  row.push(j);
+				}
+				$scope.rows.push(row);
+			  }
+			  
+			  
+			   $scope.rows2 = [];
+			  
+			  for(var i = n; i>=1; i--){
+				var row = [];
+				for(j = 1; j<=i; j++){
+				  row.push(j);
+				}
+				$scope.rows2.push(row);
+			  }
+			  for(var i = 1; i<=n; i++){
+				var row = [];
+				for(j = 1; j<=i; j++){
+				  row.push(j);
+				}
+				$scope.rows2.push(row);
+			  }
+		   }
+		});
+	</script>
+	<style>
+		.row{
+			display:inline-block; /* to make sure rows' stars appear next to each other */
+			}
+			
+		.row2{	
+			display:inline-block;
+			
+			  
+		}
+	</style>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<body>
+	
+	<div ng-app="demo">
+  <div class="flex-control-nav" ng-controller="testCtrl">
+     <input class="form-control" type="number" ng-model="givenNumber" ng-change="printStars()">
+     <div ng-repeat="x in rows">
+        <div ng-repeat="y in x"  class="row">
+          <h1 class="fa fa-star"  ></h1>
+        </div>
+     </div>
+	 
+	 <div ng-repeat="x in rows2" class="row2">
+        <div ng-repeat="y in x"  >
+          <h1 class="fa fa-star"  ></h1>
+        </div>
+     </div>
+  </div>
+</div>
+	
+	
+	
+
+</body>
+
+</html>
